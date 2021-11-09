@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Gazetteer</title>
+
+  <!-- Font awesome icons -->
+  <script src="https://kit.fontawesome.com/6f3003e390.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap styles -->
+  <link rel="stylesheet" type="text/css" href="vendors/bootstrap/css/bootstrap.min.css">
+
+  <!-- leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+  <!-- css styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+  
+  
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="container">
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="container p-0 modal-content">
+      <div class="modal-body">
+        <div class="custom-carousel-buttons">
+          <div class='slider-buttons'>
+            
+            <button type="button" id='btn-weather-slide' data-bs-target="#carouselExampleInterval" data-bs-slide-to="0" class="btn btn-md btn-outline-light" aria-current="true" aria-label="Slide 1"><i class="fas fa-wind"></i></button>
+            <button class='btn btn-md btn-outline-light' type="button" id='btn-facts-slide' data-bs-target="#carouselExampleInterval" data-bs-slide-to="1" aria-label="Slide 2"><i class="fas fa-info"></i></button>
+            <button class='btn btn-md btn-outline-light' type="button" id='btn-geo-slide' data-bs-target="#carouselExampleInterval" data-bs-slide-to="2" aria-label="Slide 3"><i class="fas fa-map-marked-alt"></i></button>
+          </div>
+          <button class='btn btn-outline-light' type="button" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="container carousel-container">
+
+          <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="50000">
+            <div class="card modal-card">
+              <div class="card-body p-0">
+                
+              <div class="container weather-box">
+                <div class="row">
+                  <h4 class="card-title">Country | Capital</h4>
+                  
+                </div>
+                <div class="row">
+                    <h1>17&deg;C</h1>
+                    <h3>Partly Cloudy</h3>
+                    
+                 
+                </div>
+              </div>
+              <div class="container barometer p-0">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div class="row">
+                      
+                          <h6 class='col'>Humidity</h6>
+        
+                      <p class="col">
+                        48%
+                      </p>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="row">
+                      
+                          <h6 class='col'>Wind Speed</h6>
+        
+                      <p class="col">
+                        48%
+                      </p>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                      <div class="row">
+                      
+                        <h6 class='col'>Dew Point</h6>
+        
+                      <p class="col">
+                        48%
+                      </p>
+                    </div>
+                  </li>
+              </ul>
+            </div>
+          </div>
+            </div>
+              
+              
+          </div>
+          <div class="carousel-item" data-bs-interval="50000">
+            <div class="card modal-card">
+              <div class="card-body p-0">
+                <div class="container weather-box">
+                  <div class="row">
+                    <h4 class="card-title">Country | Capital</h4>
+                    
+                  </div>
+                  <div class="row">
+                      <h1>17&deg;C</h1>
+                      <h3>Partly Cloudy</h3>
+                    
+                      
+                  </div>
+                </div>
+                <div class="container barometer p-0">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <div class="row">
+                        
+                        <h6 class='col'>Humidity</h6>
+                        
+                        <p class="col">
+                          48%
+                        </p>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                        
+                            <h6 class='col'>Wind Speed</h6>
+                            
+                        <p class="col">
+                          48%
+                        </p>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                        
+                          <h6 class='col'>Dew Point</h6>
+                          
+                        <p class="col">
+                          48%
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                </div>
+           
+                
+          
+          </div>
+      
+      
+            
+          
+          
+        </div>
+        
+        <div class="carousel-item" data-bs-interval="50000">
+          <div class="card modal-card">
+            <div class="card-body p-0">
+              <div class="container weather-box">
+                <div class="row">
+                  <h4 class="card-title">Country | Capital</h4>
+
+                  </div>
+                  <div class="row">
+                      <h1>17&deg;C</h1>
+                      <h3>Partly Cloudy</h3>
+                    
+                   
+                    </div>
+                </div>
+                <div class="container barometer p-0">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <div class="row">
+                        
+                            <h6 class='col'>Humidity</h6>
+          
+                        <p class="col">
+                          48%
+                        </p>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                          
+                            <h6 class='col'>Wind Speed</h6>
+          
+                        <p class="col">
+                          48%
+                        </p>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="row">
+                        
+                          <h6 class='col'>Dew Point</h6>
+                          
+                        <p class="col">
+                          48%
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+              </div>
+              
+              
+            </div>
+            
+      
+          </div>
+          
+      
+            
+            
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+   
+  
+  
+  <div id="preloader">
+    
+  </div>
+  
+ <script src="vendors/jquery/jquery-3.6.0.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+ <script type="module" src="js\script.js"></script>
+</body>
+
+</html>
